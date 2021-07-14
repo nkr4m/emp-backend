@@ -1,5 +1,6 @@
 package com.infy.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.transaction.Transactional;
@@ -77,6 +78,17 @@ public class EmployeeServiceImpl implements EmployeeService{
 		emp.setLocation(empDto.getLocation());
 		
 	}
+
+	@Override
+	public List<EmployeeDTO> getListEmp(List<Integer> emp) {
+		// TODO Auto-generated method stub
+		
+		
+		
+		return null;
+	}
+	
+	
 	
 	
 	

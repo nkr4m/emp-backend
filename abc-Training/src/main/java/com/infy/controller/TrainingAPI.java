@@ -22,10 +22,20 @@ public class TrainingAPI {
 	@Autowired
 	TrainingService service;
 	
-	@GetMapping("/{empId}")
+	@GetMapping("/GET/{empId}")
 	public ResponseEntity<List<TrainingDTO>> getSpecificTraining(@PathVariable Integer empId){
 		List<TrainingDTO> list = service.getSpecificTraining(empId);
 		return new ResponseEntity<List<TrainingDTO>>(list, HttpStatus.OK);
 	}
+	
+	@GetMapping("/{courseName}")
+	public ResponseEntity<List<Integer>> getList(@PathVariable String courseName){
+		List<Integer> list = service.listEmployee(courseName);
+		
+		return new ResponseEntity<List<Integer>>(list, HttpStatus.OK);
+	}
+	
+	
+	
 
 }
