@@ -10,9 +10,10 @@ public class EmployeeDTO {
 	Integer age;
 	String location;
 	String emailId;
-	String password;
+//	String password;
 	
 	List<TrainingDTO> training = new ArrayList();
+	EmployeeCred loginCred;
 	
 	public Integer getEmpId() {
 		return empId;
@@ -44,12 +45,12 @@ public class EmployeeDTO {
 	public void setLocation(String location) {
 		this.location = location;
 	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
+//	public String getPassword() {
+//		return password;
+//	}
+//	public void setPassword(String password) {
+//		this.password = password;
+//	}
 	public List<TrainingDTO> getTraining() {
 		return training;
 	}
@@ -62,6 +63,15 @@ public class EmployeeDTO {
 	public void setEmailId(String emailId) {
 		this.emailId = emailId;
 	}
+	public EmployeeCred getLoginCred() {
+		return loginCred;
+	}
+	public void setLoginCred(EmployeeCred loginCred) {
+		this.loginCred = loginCred;
+	}
+	
+	
+	
 	
 	
 	

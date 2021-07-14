@@ -41,28 +41,28 @@ public class EmployeeServiceImpl implements EmployeeService{
 		e.setEmailId(e1.getEmailId());
 		e.setLocation(e1.getLocation());
 		e.setAge(e1.getAge());
-		e.setPassword(e1.getPassword());
+//		e.getLoginCred().setPassword(e1.getPassword());
 		e.setEmailId(e1.getEmailId());
 	
 		
 		return e;
 	}
 
-	@Override
-	public boolean login(LoginDTO login) {
-		// TODO Auto-generated method stub
-		
-		Boolean flag=false;
-		logger.info("Login request for customer {} with password {}", login.getEmpId(),login.getPassword());
-		Optional<Employee> emp;
-		
-		emp=repo.findById(login.getEmpId());
-		if(emp.isPresent() && emp.get() != null && emp.get().getPassword().equals(login.getPassword())) {
-			flag= true;
-		}
-		return flag;
-		
-	}
+//	@Override
+//	public boolean login(LoginDTO login) {
+//		// TODO Auto-generated method stub
+//		
+//		Boolean flag=false;
+//		logger.info("Login request for customer {} with password {}", login.getEmpId(),login.getPassword());
+//		Optional<Employee> emp;
+//		
+//		emp=repo.findById(login.getEmpId());
+//		if(emp.isPresent() && emp.get() != null && emp.get().getPassword().equals(login.getPassword())) {
+//			flag= true;
+//		}
+//		return flag;
+//		
+//	}
 
 	@Override
 	public void updateEmployee(Integer empId, EmployeeDTO empDto) {

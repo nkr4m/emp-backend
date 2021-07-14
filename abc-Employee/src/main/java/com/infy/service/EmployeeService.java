@@ -7,7 +7,7 @@ public interface EmployeeService {
 	
 	public EmployeeDTO getSpecificEmployee(Integer empId);
 	
-	public boolean login(LoginDTO login);
+//	public boolean login(LoginDTO login);
 	
 	public void updateEmployee(Integer empId, EmployeeDTO empDto);
 	

@@ -13,7 +13,7 @@ public class Employee {
 	Integer age;
 	String location;
 	String emailId;
-	String password;
+//	String password;
 	
 	
 	public Integer getEmpId() {
@@ -46,12 +46,12 @@ public class Employee {
 	public void setLocation(String location) {
 		this.location = location;
 	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
+//	public String getPassword() {
+//		return password;
+//	}
+//	public void setPassword(String password) {
+//		this.password = password;
+//	}
 	public String getEmailId() {
 		return emailId;
 	}

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import com.infy.dto.EmployeeCred;
 import com.infy.dto.EmployeeDTO;
 import com.infy.dto.LoginDTO;
 import com.infy.dto.TrainingDTO;
@@ -35,15 +36,17 @@ public class EmployeeAPI {
 		List<TrainingDTO> t =  new RestTemplate().getForObject("http://localhost:8081/training-api/" + e.getEmpId(), List.class);
 		e.setTraining(t);
 		
+		EmployeeCred e1 = new RestTemplate().getForObject("http://localhost:8082/GET/" + e.getEmpId(), EmployeeCred.class);
+		e.setLoginCred(e1);
 		return new ResponseEntity<EmployeeDTO>(e, HttpStatus.OK);
 	}
 	
 	
-	@PostMapping("/login")
-	public ResponseEntity<Boolean> login(@RequestBody LoginDTO login){
-		Boolean flag = service.login(login);
-		return new ResponseEntity<Boolean>(flag, HttpStatus.OK);
-	}
+//	@PostMapping("/login")
+//	public ResponseEntity<Boolean> login(@RequestBody LoginDTO login){
+//		Boolean flag = service.login(login);
+//		return new ResponseEntity<Boolean>(flag, HttpStatus.OK);
+//	}
 	
 	@PutMapping("/{empId}")
 	public ResponseEntity<String> updateEmployee(@PathVariable Integer empId, @RequestBody EmployeeDTO emp){
