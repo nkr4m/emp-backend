@@ -1,5 +1,6 @@
 package com.infy.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -82,10 +83,20 @@ public class EmployeeServiceImpl implements EmployeeService{
 	@Override
 	public List<EmployeeDTO> getListEmp(List<Integer> emp) {
 		// TODO Auto-generated method stub
+		List<EmployeeDTO> list = new ArrayList<>();
+		for(Integer i : emp) {
+			Optional<Employee> e = repo.findById(i);
+			EmployeeDTO ed = new EmployeeDTO();
+			
+			ed.setFirstName(e.get().getFirstName());
+			ed.setLastName(e.get().getLastName());
+			
+			list.add(ed);
+		}
 		
 		
 		
-		return null;
+		return list;
 	}
 	
 	

@@ -33,7 +33,7 @@ public class EmployeeAPI {
 	public ResponseEntity<EmployeeDTO> getSpecificEmployee(@PathVariable Integer empId){
 		EmployeeDTO e = service.getSpecificEmployee(empId);
 		
-		List<TrainingDTO> t =  new RestTemplate().getForObject("http://localhost:8081/training-api/" + e.getEmpId(), List.class);
+		List<TrainingDTO> t =  new RestTemplate().getForObject("http://localhost:8081/training-api/GET/" + e.getEmpId(), List.class);
 		e.setTraining(t);
 		
 		EmployeeCred e1 = new RestTemplate().getForObject("http://localhost:8082/GET/" + e.getEmpId(), EmployeeCred.class);
@@ -54,6 +54,14 @@ public class EmployeeAPI {
 		String str = "Successfully updated";
 		return new ResponseEntity<String>(str, HttpStatus.OK);
 	}
+	
+	@GetMapping("/GET/{courseName}")
+	public ResponseEntity<List<EmployeeDTO>> getSpecificCourseEmp(@PathVariable String courseName){
+		List<Integer> list = new RestTemplate().getForObject("http://localhost:8081/training-api/" + courseName , List.class);
+		List<EmployeeDTO> listDTO = service.getListEmp(list);
+		return new ResponseEntity<List<EmployeeDTO>>(listDTO, HttpStatus.OK);
+	}
+	
 	
 	
 	
