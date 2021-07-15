@@ -1,6 +1,5 @@
 package com.infy.service;
 
-import java.util.List;
 import java.util.Optional;
 
 import javax.transaction.Transactional;
@@ -42,28 +41,28 @@ public class EmployeeServiceImpl implements EmployeeService{
 		e.setEmailId(e1.getEmailId());
 		e.setLocation(e1.getLocation());
 		e.setAge(e1.getAge());
-//		e.getLoginCred().setPassword(e1.getPassword());
+		e.setPassword(e1.getPassword());
 		e.setEmailId(e1.getEmailId());
 	
 		
 		return e;
 	}
 
-//	@Override
-//	public boolean login(LoginDTO login) {
-//		// TODO Auto-generated method stub
-//		
-//		Boolean flag=false;
-//		logger.info("Login request for customer {} with password {}", login.getEmpId(),login.getPassword());
-//		Optional<Employee> emp;
-//		
-//		emp=repo.findById(login.getEmpId());
-//		if(emp.isPresent() && emp.get() != null && emp.get().getPassword().equals(login.getPassword())) {
-//			flag= true;
-//		}
-//		return flag;
-//		
-//	}
+	@Override
+	public boolean login(LoginDTO login) {
+		// TODO Auto-generated method stub
+		
+		Boolean flag=false;
+		logger.info("Login request for customer {} with password {}", login.getEmpId(),login.getPassword());
+		Optional<Employee> emp;
+		
+		emp=repo.findById(login.getEmpId());
+		if(emp.isPresent() && emp.get() != null && emp.get().getPassword().equals(login.getPassword())) {
+			flag= true;
+		}
+		return flag;
+		
+	}	
 
 	@Override
 	public void updateEmployee(Integer empId, EmployeeDTO empDto) {
@@ -78,17 +77,6 @@ public class EmployeeServiceImpl implements EmployeeService{
 		emp.setLocation(empDto.getLocation());
 		
 	}
-
-	@Override
-	public List<EmployeeDTO> getListEmp(List<Integer> emp) {
-		// TODO Auto-generated method stub
-		
-		
-		
-		return null;
-	}
-	
-	
 	
 	
 	

@@ -44,21 +44,6 @@ public class TrainingServiceImpl implements TrainingService{
 		return dto;
 	}
 
-	@Override
-	public List<Integer> listEmployee(String name) {
-		// TODO Auto-generated method stub
-		
-		List<Training> list = repo.findByCourseName(name);
-		List<Integer> list_int = new ArrayList<>();
-		
-		for(Training t : list) {
-			Integer i = t.getEmpId();
-			list_int.add(i);
-		}
-		
-		return list_int;
-	}
-
 	
 	
 }
